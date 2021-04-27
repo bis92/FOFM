@@ -1,0 +1,36 @@
+language: generic
+
+sudo: required
+
+services:
+  - docker
+
+before_install:
+  - docker build -t bis92/react-test-app -f ./client/Dockerfile.dev ./client
+
+script:
+  - docker run -e CI=true bis92/react-test-app npm run test
+
+after_success:
+  - docker build -t bis92/fofm-client ./client
+  - docker build -t bis92/fofm-server ./server
+  - docker build -t bis92/fofm-nginx ./nginx
+
+  - echo "$DOCKER_HUB_PASSWORD" | docker login -u "$DOCKER_HUB_ID" --password-stdin
+
+  - docker push bis92/fofm-client
+  - docker push bis92/fofm-server
+  - docker push bis92/fofm-nginx
+
+deploy:
+  provider: elasticbeanstalk
+  region: "ap-northeast-2"
+  app: "FOFM"
+  env: "Fofm-env"
+  bucket_name: elasticbeanstalk-ap-northeast-2-791972609413
+  bucket_path: "FOFM"
+  on:
+    branch: master
+  
+  access_key_id: $AWS_ACCESS_KEY_ID
+  secret_access_key: $AWS_SECRET_ACCESS_KEY

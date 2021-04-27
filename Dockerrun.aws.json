@@ -1,0 +1,33 @@
+{
+    "AWSEBDockerrunVersion": 2,
+    "containerDefinitions": [
+        {
+            "name": "client",
+            "image": "bis92/fofm-client",
+            "hostname": "client",
+            "essential": false,
+            "memory": 1024
+        },
+        {
+            "name": "server",
+            "image": "bis92/fofm-server",
+            "hostname": "server",
+            "essential": false,
+            "memory": 512
+        },
+        {
+            "name": "nginx",
+            "image": "bis92/fofm-nginx",
+            "hostname": "nginx",
+            "essential": true,
+            "memory": 256,
+            "portMappings": [
+                {
+                    "hostPort": 80,
+                    "containerPort": 80
+                }
+            ],
+            "links": ["client", "server"]
+        }
+    ]
+}

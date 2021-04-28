@@ -4,8 +4,8 @@
   "description": "boiler plate version two",
   "main": "index.js",
   "engine": {
-    "node": "12.22.1",
-    "npm": "6.9.0"
+    "node": "14.16.1",
+    "npm": "7.11.1"
   },
   "scripts": {
     "start": "cross-env NODE_ENV=production node dist/server.js",

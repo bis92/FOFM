@@ -2,7 +2,7 @@
 /build
 
 dev.js
-.env
+
 
 /uploads
 
@@ -13,5 +13,5 @@ yarn-debug.kog*
 yarn-error.log*
 
 googleoauth.json
-
+.env
 .vscode

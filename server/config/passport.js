@@ -48,7 +48,8 @@ const googleStrategyConfig = new GoogleStrategy({
     clientID: config.googleClientId,
     clientSecret: config.googleClientSecret,
     callbackURL: '/auth/google/callback',
-    passReqToCallback: true
+    passReqToCallback: true,
+    proxy:true
 }, (req, accessToken, refreshToken, params, profile, done) => {
     console.log('req.user', req.user)
     if (req.user) {

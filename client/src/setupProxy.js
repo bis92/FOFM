@@ -8,4 +8,9 @@ module.exports = function (app) {
       changeOrigin: true,
     })
   );
+  app.use(proxy("/auth/google", { target: "http://localhost:3000" }));
+};
+
+module.exports = function(app) {
+  
 };

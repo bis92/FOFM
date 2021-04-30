@@ -63,25 +63,25 @@ function FriendInfo(props) {
 
   return (
     <div>
-      <Descriptions title="Friend Info" bordered>
-        <Descriptions.Item label="Name">{props.detail.name}</Descriptions.Item>
-        <Descriptions.Item label="Gender">
+      <Descriptions title="친구 정보" bordered>
+        <Descriptions.Item label="이름">{props.detail.name}</Descriptions.Item>
+        <Descriptions.Item label="성별">
           {props.detail.gender === 0 ? "남자":"여자"}
         </Descriptions.Item>
-        <Descriptions.Item label="Age">{props.detail.age}</Descriptions.Item>
-        <Descriptions.Item label="Address" span={2}>
+        <Descriptions.Item label="나이">{props.detail.age}</Descriptions.Item>
+        <Descriptions.Item label="거주지" span={2}>
           {props.detail.address}
         </Descriptions.Item>
-        <Descriptions.Item label="Interest" span={3}>
+        <Descriptions.Item label="취미/관심사" span={3}>
           {props.detail.interest}
         </Descriptions.Item>
         <Descriptions.Item label="MBTI">
           {Mbtis[props.detail.mbtis]}
         </Descriptions.Item>
-        <Descriptions.Item label="Contact" span={2}>
+        <Descriptions.Item label="연락처/소통방법" span={2}>
           {props.detail.contact}
         </Descriptions.Item>
-        <Descriptions.Item label="Introduce" span={4}>
+        <Descriptions.Item label="자기소개" span={4}>
           {props.detail.introduce}
         </Descriptions.Item>
       </Descriptions>

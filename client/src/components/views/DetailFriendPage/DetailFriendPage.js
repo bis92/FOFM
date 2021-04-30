@@ -27,10 +27,10 @@ function DetailFriendPage(props) {
       <br />
 
       <Row gutter={[16, 16]}>
-        <Col lg={10} sm={24}>
+        <Col lg={9} sm={24}>
           <FriendImage detail={Friend} />
         </Col>
-        <Col lg={14} sm={24}>
+        <Col lg={15} sm={24}>
           <FriendInfo detail={Friend} user={user} friendId={friendId} />
         </Col>
       </Row>

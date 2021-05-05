@@ -7,13 +7,14 @@
             "hostname": "client",
             "essential": false,
             "memory": 128
+            
         },
         {
             "name": "server",
             "image": "bis92/fofm-server",
             "hostname": "server",
             "essential": false,
-            "memory": 512
+            "memory": 700
         },
         {
             "name": "nginx",
@@ -21,12 +22,6 @@
             "hostname": "nginx",
             "essential": true,
             "memory": 128,
-            "portMappings": [
-                {
-                    "hostPort": 80,
-                    "containerPort": 80
-                }
-            ],
             "links": ["client", "server"]
         }
     ]

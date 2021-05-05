@@ -5,7 +5,6 @@ const multer = require("multer");
 const multerS3 = require("multer-s3");
 
 const { Friend } = require("../models/Friend");
-
 aws.config.update({
   secretAccessKey: process.env.secretAccessKey,
   accessKeyId: process.env.accessKeyId,

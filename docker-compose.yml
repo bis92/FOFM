@@ -1,9 +1,9 @@
 version: "3"
 services:
     client:
-        container_name: "fofm_app_client"
+        container_name: fofm_app_client
         build:
-            dockerfile: Dockerfile.dev
+            dockerfile: Dockerfile
             context: ./client
         environment:
             CHOKIDAR_USEPOLLING: "true"
@@ -20,10 +20,9 @@ services:
         ports:
             - "3000:80"
     server:
-        restart: always
         build:
+            dockerfile: Dockerfile
             context: ./server
-            dockerfile: Dockerfile.dev
         container_name: fofm_app_server
         ports:
             - "5000:5000"

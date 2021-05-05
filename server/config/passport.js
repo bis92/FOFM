@@ -3,7 +3,7 @@ const GoogleStrategy = require('passport-google-oauth20').Strategy;
 const LocalStrategy = require('passport-local').Strategy;
 // const { OAuth2Strategy: GoogleStrategy } = require('passport-google-oauth20');\
 const moment = require('moment');
-const config = require('../config/key');
+const config = require('./key');
 const { User } = require("../models/User");
 
 

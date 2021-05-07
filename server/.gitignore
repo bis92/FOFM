@@ -13,5 +13,4 @@ yarn-debug.kog*
 yarn-error.log*
 
 googleoauth.json
-.env
 .vscode

@@ -70,7 +70,7 @@ function FriendInfo(props) {
         </Descriptions.Item>
         <Descriptions.Item label="나이">{props.detail.age}</Descriptions.Item>
         <Descriptions.Item label="거주지" span={2}>
-          {props.detail.address}
+        {props.detail.address}
         </Descriptions.Item>
         <Descriptions.Item label="취미/관심사" span={3}>
           {props.detail.interest}
@@ -79,10 +79,10 @@ function FriendInfo(props) {
           {Mbtis[props.detail.mbtis]}
         </Descriptions.Item>
         <Descriptions.Item label="연락처/소통방법" span={2}>
-          {props.detail.contact}
+          {props.user.userData && props.user.userData.isAuth ? props.detail.contact : "로그인 후 확인 가능합니다"}
         </Descriptions.Item>
         <Descriptions.Item label="자기소개" span={4}>
-          {props.detail.introduce}
+        {props.user.userData && props.user.userData.isAuth ? props.detail.introduce : "로그인 후 확인 가능합니다"}
         </Descriptions.Item>
       </Descriptions>
 

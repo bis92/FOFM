@@ -46,7 +46,7 @@ passport.use(new LocalStrategy({ usernameField: 'email', passwordField: 'passwor
 const googleStrategyConfig = new GoogleStrategy({
     clientID: config.googleClientId,
     clientSecret: config.googleClientSecret,
-    callbackURL: 'https://www.fofm.co.kr/auth/google/callback',
+    callbackURL: config.googleCallbackURL,
     passReqToCallback: true,
     proxy: true
 }, (req, accessToken, refreshToken, params, profile, done) => {

@@ -73,7 +73,7 @@ function LoginPage(props) {
           </Link>
         </div>
 
-        <a href="https://www.fofm.co.kr/auth/google" className="button">
+        <a href="/auth/google" className="button">
           <div
             style={{
               display: "flex",

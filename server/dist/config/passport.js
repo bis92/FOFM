@@ -2,7 +2,7 @@
 const passport = require('passport');
 const GoogleStrategy = require('passport-google-oauth20').Strategy;
 const LocalStrategy = require('passport-local').Strategy;
-// const { OAuth2Strategy: GoogleStrategy } = require('passport-google-oauth20');\
+// const { OAuth2Strategy: GoogleStrategy } = require('passport-google-oauth20');
 const moment = require('moment');
 const config = require('./key');
 const { User } = require("../models/User");
@@ -40,7 +40,7 @@ passport.use(new LocalStrategy({ usernameField: 'email', passwordField: 'passwor
         });
     });
 }));
-/**
+/*
  * Sign in with Google.
  */
 const googleStrategyConfig = new GoogleStrategy({

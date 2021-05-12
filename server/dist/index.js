@@ -15,8 +15,6 @@ const passport = require("passport");
 //Out of the box, express has no idea how to handle cookies,
 //so we need to install a helper library called Cookie Session.
 const cookieSession = require("cookie-session");
-
-
 if (env.error) {
     throw env.error;
 }
@@ -73,12 +71,7 @@ app.use(morgan("dev"));
 app.use(cors());
 app.use("/api/users", require("./routes/users"));
 app.use("/api/friends", require("./routes/friends"));
-app.get("/auth/google", passport.authenticate("google", {
-    scope: ["profile", "email"],
-}));
-app.get("/auth/google/callback", passport.authenticate("google"), (req, res) => {
-    res.redirect("https://www.fofm.co.kr/main");
-});
+app.use('/auth', require('./routes/auth'));
 //use this to show static files you have in node js server to client (react js)
 //https://stackoverflow.com/questions/48914987/send-image-path-from-node-js-express-server-to-react-client
 app.use("/uploads", express.static("uploads"));

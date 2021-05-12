@@ -4,7 +4,14 @@ module.exports = function (app) {
   app.use(
     "/api",
     createProxyMiddleware({
-      target: "https://www.fofm.co.kr",
+      target: "http://localhost:5000",
+      changeOrigin: true
+    })
+  );
+  app.use(
+    "/auth",
+    createProxyMiddleware({
+      target: "http://localhost:5000",
       changeOrigin: true
     })
   );

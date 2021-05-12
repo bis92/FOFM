@@ -1,3 +1,5 @@
+const dotenv = require("dotenv");
+const env = dotenv.config({ path: ".env" });
 const express = require("express");
 const cookieParser = require("cookie-parser");
 const bodyParser = require("body-parser");
@@ -12,8 +14,6 @@ const passport = require("passport");
 //Out of the box, express has no idea how to handle cookies,
 //so we need to install a helper library called Cookie Session.
 const cookieSession = require("cookie-session");
-const dotenv = require("dotenv");
-const env = dotenv.config({ path: ".env" });
 
 if (env.error) {
   throw env.error;

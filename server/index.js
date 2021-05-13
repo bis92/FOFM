@@ -1,5 +1,4 @@
-const dotenv = require("dotenv");
-const env = dotenv.config({ path: ".env" });
+require('dotenv').config();
 const express = require("express");
 const cookieParser = require("cookie-parser");
 const bodyParser = require("body-parser");
@@ -15,9 +14,8 @@ const passport = require("passport");
 //so we need to install a helper library called Cookie Session.
 const cookieSession = require("cookie-session");
 
-if (env.error) {
-  throw env.error;
-}
+const indexRouter = require("./routes"); // your routes.js
+
 /**
  * Passport configuration.
  */
@@ -25,6 +23,7 @@ require("./config/passport");
 
 const app = express();
 const connectString = `mongodb+srv://${process.env.MONGO_USER}:${process.env.MONGO_PASSWORD}@boilerplate.2wgwr.mongodb.net/friendoptimizedforme?retryWrites=true&w=majority`;
+
 
 mongoose
   .connect(connectString, {
@@ -81,13 +80,8 @@ app.use(
 app.use(morgan("dev"));
 
 // CORS Middleware
-
 app.use(cors());
-
-app.use("/api/users", require("./routes/users"));
-app.use("/api/friends", require("./routes/friends"));
-app.use('/auth', require('./routes/auth'));
-
+app.use("/api", indexRouter);
 //use this to show static files you have in node js server to client (react js)
 //https://stackoverflow.com/questions/48914987/send-image-path-from-node-js-express-server-to-react-client
 app.use("/uploads", express.static("uploads"));

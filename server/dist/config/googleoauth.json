@@ -4,4 +4,4 @@
     "token_uri":"https://oauth2.googleapis.com/token",
     "auth_provider_x509_cert_url":"https://www.googleapis.com/oauth2/v1/certs",
     "client_secret":"kWB3GurZTAJr1txB4G7HhO3U",
-    "redirect_uris":["https://www.fofm.co.kr/auth/google/callback"]}}
+    "redirect_uris":["http://localhost:3000/auth/google/callback"]}}

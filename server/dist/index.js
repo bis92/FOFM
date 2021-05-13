@@ -68,10 +68,11 @@ app.use(cors());
 app.use("/api/users", require("./routes/users"));
 app.use("/api/friends", require("./routes/friends"));
 app.get("/auth/google", passport.authenticate("google", {
-    scope: ["profile", "email"],
+    scope: ["https://www.googleapis.com/auth/userinfo.profile",
+    "https://www.googleapis.com/auth/userinfo.email"],
 }));
 app.get("/auth/google/callback", passport.authenticate("google"), (req, res) => {
-    res.redirect("http://www.fofm.co.kr/main");
+    res.redirect("https://www.fofm.co.kr/main");
 });
 //use this to show static files you have in node js server to client (react js)
 //https://stackoverflow.com/questions/48914987/send-image-path-from-node-js-express-server-to-react-client

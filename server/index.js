@@ -93,7 +93,7 @@ app.get(
   "/auth/google/callback",
   passport.authenticate("google"),
   (req, res) => {
-    res.redirect("http://www.fofm.co.kr/main");
+    res.redirect("http://localhost:3000");
   }
 );
 

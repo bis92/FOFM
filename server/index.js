@@ -1,5 +1,6 @@
 require('dotenv').config();
 const express = require("express");
+
 const cookieParser = require("cookie-parser");
 const bodyParser = require("body-parser");
 const morgan = require("morgan");
@@ -17,9 +18,9 @@ const cookieSession = require("cookie-session");
 /**
  * Passport configuration.
  */
-require("./config/passport");
 
-const app = express();
+
+
 const connectString = `mongodb+srv://${process.env.MONGO_USER}:${process.env.MONGO_PASSWORD}@boilerplate.2wgwr.mongodb.net/friendoptimizedforme?retryWrites=true&w=majority`;
 
 
@@ -40,10 +41,12 @@ app.use(
     keys: [config.cookieEncryptionKey], //
   })
 );
+const app = express();
 
 // tell pasport to make use of cookies to handle authentication
 app.use(passport.initialize());
 app.use(passport.session());
+require("./config/passport");
 
 //to not get any deprecation warning or error
 //support parsing of application/x-www-form-urlencoded post data
@@ -81,7 +84,7 @@ app.use(morgan("dev"));
 app.use(cors());
 app.use("/api/users", require("./routes/users"));
 app.use("/api/friends", require("./routes/friends"));
-app.use("/auth", require('./routes/auth'));
+require("./routes/auth.js")(app);
 
 //use this to show static files you have in node js server to client (react js)
 //https://stackoverflow.com/questions/48914987/send-image-path-from-node-js-express-server-to-react-client

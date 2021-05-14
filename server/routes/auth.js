@@ -1,9 +1,10 @@
 const passport = require("passport");
 const express = require("express");
-const router = express.Router();
+const app = express();
 
-  router.get(
-    "/google",
+module.exports = app => {
+  app.get(
+    "/auth/google",
     passport.authenticate("google", {
       scope: [
         "https://www.googleapis.com/auth/userinfo.profile",
@@ -11,13 +12,11 @@ const router = express.Router();
       ]
     })
   );
-
-  router.get(
-    "/google/callback",
+  app.get(
+    "/auth/google/callback",
     passport.authenticate("google"),
     (req, res) => {
       res.redirect("http://localhost:3000/");
     }
   );
-
-  module.exports = router;
+  };

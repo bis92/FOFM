@@ -1,14 +1,15 @@
 "use strict";
 const passport = require("passport");
 const express = require("express");
-const router = express.Router();
-router.get("/google", passport.authenticate("google", {
-    scope: [
-        "https://www.googleapis.com/auth/userinfo.profile",
-        "https://www.googleapis.com/auth/userinfo.email"
-    ]
-}));
-router.get("/google/callback", passport.authenticate("google"), (req, res) => {
-    res.redirect("https://www.fofm.co.kr/main");
-});
-module.exports = router;
+const app = express();
+module.exports = app => {
+    app.get("/auth/google", passport.authenticate("google", {
+        scope: [
+            "https://www.googleapis.com/auth/userinfo.profile",
+            "https://www.googleapis.com/auth/userinfo.email"
+        ]
+    }));
+    app.get("/auth/google/callback", passport.authenticate("google"), (req, res) => {
+        res.redirect("https://www.fofm.co.kr/main");
+    });
+};

@@ -67,7 +67,7 @@ app.use(morgan("dev"));
 app.use(cors());
 app.use("/api/users", require("./routes/users"));
 app.use("/api/friends", require("./routes/friends"));
-app.use("/auth", require('./routes/auth'));
+require("./routes/auth.js")(app);
 //use this to show static files you have in node js server to client (react js)
 //https://stackoverflow.com/questions/48914987/send-image-path-from-node-js-express-server-to-react-client
 app.use("/uploads", express.static("uploads"));

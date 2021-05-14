@@ -18,11 +18,7 @@ const cookieSession = require("cookie-session");
 /**
  * Passport configuration.
  */
-
-
-
 const connectString = `mongodb+srv://${process.env.MONGO_USER}:${process.env.MONGO_PASSWORD}@boilerplate.2wgwr.mongodb.net/friendoptimizedforme?retryWrites=true&w=majority`;
-
 
 mongoose
   .connect(connectString, {
@@ -33,7 +29,7 @@ mongoose
   })
   .then(() => console.log("MongoDB Connected..."))
   .catch((err) => console.error(err));
-
+const app = express();
 // tell app to use cookie
 app.use(
   cookieSession({
@@ -41,7 +37,7 @@ app.use(
     keys: [config.cookieEncryptionKey], //
   })
 );
-const app = express();
+
 
 // tell pasport to make use of cookies to handle authentication
 app.use(passport.initialize());

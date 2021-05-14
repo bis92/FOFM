@@ -17,8 +17,6 @@ const cookieSession = require("cookie-session");
 /**
  * Passport configuration.
  */
-require("./config/passport");
-const app = express();
 const connectString = `mongodb+srv://${process.env.MONGO_USER}:${process.env.MONGO_PASSWORD}@boilerplate.2wgwr.mongodb.net/friendoptimizedforme?retryWrites=true&w=majority`;
 mongoose
     .connect(connectString, {
@@ -29,6 +27,7 @@ mongoose
 })
     .then(() => console.log("MongoDB Connected..."))
     .catch((err) => console.error(err));
+const app = express();
 // tell app to use cookie
 app.use(cookieSession({
     maxAge: 1209600000,
@@ -37,6 +36,7 @@ app.use(cookieSession({
 // tell pasport to make use of cookies to handle authentication
 app.use(passport.initialize());
 app.use(passport.session());
+require("./config/passport");
 //to not get any deprecation warning or error
 //support parsing of application/x-www-form-urlencoded post data
 app.use(bodyParser.urlencoded({ extended: true }));

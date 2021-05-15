@@ -86,7 +86,7 @@ app.use(
 );
 app.use("/api/users", require("./routes/users"));
 app.use("/api/friends", require("./routes/friends"));
-app.use("/auth", require("./routes/auth"));
+app.use("/api/auth", require("./routes/auth"));
 
 //use this to show static files you have in node js server to client (react js)
 //https://stackoverflow.com/questions/48914987/send-image-path-from-node-js-express-server-to-react-client

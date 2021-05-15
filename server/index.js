@@ -77,10 +77,16 @@ app.use(
 app.use(morgan("dev"));
 
 // CORS Middleware
-app.use(cors());
+app.use(
+  cors({
+    origin: "http://localhost:3000", // allow to server to accept request from different origin
+    methods: "GET,HEAD,PUT,PATCH,POST,DELETE",
+    credentials: true // allow session cookie from browser to pass through
+  })
+);
 app.use("/api/users", require("./routes/users"));
 app.use("/api/friends", require("./routes/friends"));
-require("./routes/auth.js")(app);
+app.use("/auth", require("./routes/auth"));
 
 //use this to show static files you have in node js server to client (react js)
 //https://stackoverflow.com/questions/48914987/send-image-path-from-node-js-express-server-to-react-client

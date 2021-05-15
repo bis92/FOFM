@@ -8,6 +8,12 @@ function LoginPage(props) {
   const [errorsFromSubmit, setErrorsFromSubmit] = useState("");
   const [loading, setLoading] = useState(false);
 
+  const handleSignInClick = () => {
+    // Authenticate using via passport api in the backend
+    // Open Twitter login page
+    window.open("https://accounts.google.com/o/oauth2/v2/auth?response_type=code&redirect_uri=https%3A%2F%2Fwww.fofm.co.kr%2Fauth%2Fgoogle%2Fcallback&scope=https%3A%2F%2Fwww.googleapis.com%2Fauth%2Fuserinfo.profile%20https%3A%2F%2Fwww.googleapis.com%2Fauth%2Fuserinfo.email&client_id=739513980160-4uidveolgc78i3aa9dst57u41a0q2rqa.apps.googleusercontent.com", "_self");
+  };
+
   const onSubmit = async (data) => {
     const body = {
       email: data.email,
@@ -73,7 +79,7 @@ function LoginPage(props) {
           </Link>
         </div>
 
-        <a href="http://localhost:5000/auth/google" className="button">
+        <a onClick={handleSignInClick} className="button">
           <div
             style={{
               display: "flex",

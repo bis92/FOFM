@@ -60,10 +60,10 @@ function MainPage(props) {
         }
       >
         <Meta
-          title={`${friend.name}(${friend.age}-${
+          title={<a href={`/friend/${friend._id}`}>`${friend.name}(${friend.age}-${
             friend.gender === 0 ? "남" : "여"
-          })`}
-          description={friend.address}
+          })`</a>}
+          description={<a href={`/friend/${friend._id}`}>friend.address</a>}
         />
       </Card>
     </Col>

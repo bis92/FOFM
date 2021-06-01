@@ -127,17 +127,9 @@ router.post("/getFriends", (req, res) => {
 });
 
 router.get("/friends_by_id", (req, res) => {
-  let type = req.query.type;
   let friendIds = req.query.id;
 
-  if (type === "array") {
-    let ids = req.query.id.split(",");
-    friendIds = ids.map((item) => {
-      return item;
-    });
-  }
-
-  Friend.find({ _id: { $in: friendIds } }).exec((err, friend) => {
+    Friend.find({ _id: friendIds }).exec((err, friend) => {
     if (err) return res.status(400).send(err);
     res.status(200).send(friend);
   });

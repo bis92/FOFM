@@ -5,11 +5,9 @@ import { Drawer, Button, Icon } from 'antd';
 import './Sections/Navbar.css';
 import useReactRouter from 'use-react-router';
 
-
 import {
   BarsOutlined
 } from '@ant-design/icons';
-
 
 function NavBar() {
   const [visible, setVisible] = useState(false)

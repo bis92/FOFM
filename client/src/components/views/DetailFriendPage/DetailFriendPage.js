@@ -11,7 +11,7 @@ function DetailFriendPage(props) {
 
   useEffect(() => {
     axios
-      .get(`/api/friends/friends_by_id?id=${friendId}&type=single`)
+      .get(`/api/friends/friends_by_id?id=${friendId}`)
       .then((response) => {
         setFriend(response.data[0]);
       })

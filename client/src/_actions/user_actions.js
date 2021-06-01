@@ -1,5 +1,5 @@
 import axios from "axios";
-import { AUTH_USER, ADD_TO_CART, GET_DETAIL_FRIEND } from "./types";
+import { AUTH_USER, GET_DETAIL_FRIEND } from "./types";
 
 export function auth() {
   const request = axios
@@ -8,17 +8,6 @@ export function auth() {
 
   return {
     type: AUTH_USER,
-    payload: request,
-  };
-}
-
-export function addToCart(id) {
-  const request = axios
-    .post("/api/users/addToCart")
-    .then((response) => response.data);
-
-  return {
-    type: ADD_TO_CART,
     payload: request,
   };
 }
